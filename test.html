@@ -1,0 +1,52 @@
+<button class="btn-go-checkout" onclick="paywithSeerbit()">Pay</button>
+
+<script src="https://checkout.seerbitapi.com/api/v2/seerbit.js"></script>
+
+<script>
+
+function paywithSeerbit() {
+
+SeerbitPay({
+
+"tranref": new Date().getTime(),
+
+"currency": "GHS",
+
+"description": "TEST",
+
+"country": "GH",
+
+"amount": "1.00",
+
+"full_name": "test test", //required
+
+"email": "test@emaildomain.com", //required
+
+"vendorId": "attach yor sub-account ID", //required
+
+"callbackurl": "http://yourdomain.com",
+
+
+"public_key":"SBPUBK_QYSSVYKGCHJ7HVGZDI5XJ6R1JM7JPJUH", //replace this with your own public key
+
+"setAmountByCustomer": false //optional (set true to allow customer set the amount on the checkout)
+
+},
+
+function callback(response, close) {
+
+/*response of the tansaction*/
+
+/*close is a function to close the checkout*/
+
+},
+
+function close(close) {
+
+console.log(close) /*transaction close*/
+
+})
+
+}
+
+</script>
